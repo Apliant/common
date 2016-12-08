@@ -1,0 +1,48 @@
+<?php
+
+// Registration routes...
+Route::get('auth/register', 'Digi\Controllers\Auth\AuthController@getRegister');
+Route::post('auth/register', 'Digi\Controllers\Auth\AuthController@postRegister');
+
+// Authentication routes...
+Route::get('auth/login', 'Digi\Controllers\Auth\AuthController@getLogin');
+Route::post('auth/login', ['middleware' => 'rolecheck', 'uses'=>'Digi\Controllers\Auth\AuthController@postLogin']);
+Route::get('auth/logout', 'Digi\Controllers\Auth\AuthController@getLogout');
+
+
+Route::group(['middleware' => 'auth'], function () {
+
+	Route::post('/zip_check', 'Digi\Controllers\BaseFormController@zip_check');
+
+    Route::get('/lead/{id}', ['uses'=>'Digi\Controllers\LeadFormController@basicInfo']);
+    Route::post('/lead/{id}', ['uses'=>'Digi\Controllers\LeadFormController@basicInfo']);
+
+    Route::get('/check_vin', 'Digi\Controllers\VehicleFormController@check_vin');
+    Route::post('/put_vin', 'Digi\Controllers\VehicleFormController@put_vin');
+    Route::get('/add_vehicle_form/{id}', 'Digi\Controllers\VehicleFormController@add_vehicle_form');
+    Route::post('/update_vehicles/{id}', 'Digi\Controllers\VehicleFormController@update_vehicles');
+    Route::post('/add_vehicle/{id}', 'Digi\Controllers\VehicleFormController@add_vehicle');
+	Route::get('/vehicle/{id}', 'Digi\Controllers\VehicleFormController@vehicle');
+	Route::delete('/delete_vehicle', 'Digi\Controllers\VehicleFormController@delete_vehicle');
+	
+	Route::get('/add_driver_form/{id}', 'Digi\Controllers\DriverFormController@add_driver_form');
+	Route::post('/update_drivers/{id}', 'Digi\Controllers\DriverFormController@update_drivers');
+	Route::post('/add_driver/{id}', 'Digi\Controllers\DriverFormController@add_driver');
+	Route::get('/driver/{id}', 'Digi\Controllers\DriverFormController@driver');
+
+	Route::get('/add_ticket_form/{id}', 'Digi\Controllers\TicketFormController@add_ticket_form');
+	Route::post('/update_tickets/{id}', 'Digi\Controllers\TicketFormController@update_tickets');
+	Route::post('/add_ticket/{id}', 'Digi\Controllers\TicketFormController@add_ticket');
+	Route::get('/ticket/{id}', 'Digi\Controllers\TicketFormController@ticket');
+
+	Route::get('/add_violation_form/{id}', 'Digi\Controllers\ViolationFormController@add_violation_form');
+	Route::post('/update_violations/{id}', 'Digi\Controllers\ViolationFormController@update_violations');
+	Route::post('/add_violation/{id}', 'Digi\Controllers\ViolationFormController@add_violation');
+	Route::get('/violation/{id}', 'Digi\Controllers\ViolationFormController@violation');
+
+	Route::get('/add_claim_form/{id}', 'Digi\Controllers\ClaimFormController@add_claim_form');
+	Route::post('/update_claims/{id}', 'Digi\Controllers\ClaimFormController@update_claims');
+	Route::post('/add_claim/{id}', 'Digi\Controllers\ClaimFormController@add_claim');	
+	Route::get('/claim/{id}', 'Digi\Controllers\ClaimFormController@claim');
+	
+});

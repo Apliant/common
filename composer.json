@@ -1,0 +1,13 @@
+{
+    "name": "digi/common",
+    "description": "Holds all common code for Digitial Insurance Group Applications",
+    "authors": [
+        {
+            "name": "NotTyler",
+            "email": "tech@apliant.com"
+        }
+    ],
+    "autoload": {
+        "psr-4":{"Digi\\": "src"}
+    }
+}
