@@ -26,7 +26,7 @@ class carrier extends Model
     }
     public function Quotes()
     {
-        return $this->hasMany("Digi\Models\quote_batch", "CarrierID", "ezlynx_id")
+        return $this->hasMany("Digi\Models\quote_batch", "CarrierID", "ezlynx_id");
     }
     public function Policies()
     {
