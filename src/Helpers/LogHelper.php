@@ -4,7 +4,7 @@ namespace Digi\Helpers;
 
 use DB;
 use Log;
-use Digi\Helpers\LeadRatingHelper;
+use App\Helpers\LeadRatingHelper;
 
 class LogHelper{
 
