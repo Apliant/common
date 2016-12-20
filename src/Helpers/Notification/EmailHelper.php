@@ -70,8 +70,7 @@ class EmailHelper{
 				$r = Helper::checkRequiredParameters($data["sender"], array("address"));
 				if($r["result"] == "error")
 				{
-//					Log::info(print_r($r, 1));
-					Log::info("EmailHelper no sender address";
+					Log::info("EmailHelper no sender address");
 				}
 				else
 				{
