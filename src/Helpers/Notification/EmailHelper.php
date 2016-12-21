@@ -89,7 +89,7 @@ class EmailHelper{
 				if($r["result"] == "error")
 				{
 //					Log::info(print_r($r, 1));
-					Log::info("EmailHelper no from address";
+					Log::info("EmailHelper no from address");
 				}
 				else
 				{
@@ -109,7 +109,7 @@ class EmailHelper{
 					if($r["result"] == "error")
 					{
 //						Log::info(print_r($r, 1));
-                        Log::info("EmailHelper no cc address";
+                        Log::info("EmailHelper no cc address");
 						continue;
 					}
 					if(!isset($cc["name"]))
@@ -128,7 +128,7 @@ class EmailHelper{
 					if($r["result"] == "error")
 					{
 //						Log::info(print_r($r, 1));
-                        Log::info("EmailHelper no bcc address";
+                        Log::info("EmailHelper no bcc address");
 						continue;
 					}
 					if(!isset($bcc["name"]))
@@ -145,7 +145,7 @@ class EmailHelper{
 				if($r["result"] == "error")
 				{
 //					Log::info(print_r($r, 1));
-					Log::info("EmailHelper no replyTo address";
+					Log::info("EmailHelper no replyTo address");
 				}
 				else
 				{
@@ -170,7 +170,7 @@ class EmailHelper{
 					if($r["result"] == "error")
 					{
 //						Log::info(print_r($r, 1));
-                        Log::info("EmailHelper no pathToFile address";
+                        Log::info("EmailHelper no pathToFile address");
 						continue;
 					}
 					if(!isset($attachment["options"]))
