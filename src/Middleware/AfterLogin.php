@@ -26,6 +26,13 @@ class AfterLogin
         if(Auth::check())
         {
             $user = Auth::user();
+            if($user->to_logout){
+                Log::info("agent should be logged out");
+                Auth::logout();
+                $user->update(['to_logout' => 0]);
+
+                return redirect('/');
+            }
             $agent = agent::find($user->id);
             // PROT-15
             if($agent->active != 1){
