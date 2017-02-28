@@ -24,7 +24,7 @@ Contactbox.prototype = {
 		contactboxes.push(this);
 		
 		$("#contactbox_body_"+this.id).on("click", "div", function(){
-			contactboxes[$(this).parent().data("id")].contactClickedCallback($(this));			
+			contactboxes[$(this).parent().data("id")].contactClickedCallback($(this));
 		});
 
 		$("#contactbox_add_button_"+this.id).on("click", function(){
