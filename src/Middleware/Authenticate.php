@@ -45,6 +45,14 @@ class Authenticate
         return redirect()->guest('auth/login');
       }
     }
+    $user = Auth::user();
+    if($user->to_logout){
+      Log::info("agent should be logged out");
+      Auth::logout();
+      $user->to_logout = 0;;
+
+      return redirect('/');
+    }
     return $next($request);
   }
 }
