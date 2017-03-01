@@ -49,9 +49,10 @@ class Authenticate
     $user = Auth::user();
     if($user->to_logout){
       Log::info("agent should be logged out");
-      Auth::logout();
       $user->to_logout = 0;
       $user->save();
+      Auth::logout();
+
 
       return redirect('/');
     }
