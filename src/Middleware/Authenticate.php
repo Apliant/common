@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Contracts\Auth\Guard;
 use Log;
 use Digi\Helpers\LogHelper;
+use Auth;
 
 class Authenticate
 {
