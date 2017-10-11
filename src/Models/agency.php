@@ -30,4 +30,22 @@ class agency extends Model implements BillableContract
   {
     return $this->hasOne("Digi\Models\contact");
   }
+  public function Roles()
+  {
+    return $this->belongsToMany("Digi\Models\\role");
+  }
+
+  public function hasRole($roleName)
+  {
+    $roles = $this->Roles;
+    foreach($roles as $role)
+    {
+      if($role->hasRole($roleName))
+      {
+        return true;
+      }
+    }
+    
+    return false;
+  }
 }
