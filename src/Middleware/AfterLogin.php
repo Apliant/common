@@ -34,7 +34,7 @@ class AfterLogin
                 LogHelper::logActivityId(gethostname(), __METHOD__, $user->id, 0, 0, "login attempt by inactive agent", 74, 0);
                 Log::info("login attempt by inactive agent ".$request->email);
                 Auth::logout();
-                throw new \Exception("Access Denied"); 
+                abort(403); 
             }
             // if the user is logging into the dashboard server they must minimally have admin rights
             // if the user is logging into the agent server they must have user rights
