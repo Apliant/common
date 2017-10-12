@@ -29,7 +29,7 @@ class AfterLogin
             
             $agent = agent::find($user->id);
             // PROT-15
-            if($agent->active != 1){
+            if($agent->active != 1 || $agent->Agency()->active != 1){
                 LogHelper::logActivityId(gethostname(), __METHOD__, $user->id, 0, 0, "login attempt by inactive agent", 74, 0);
                 Log::info("login attempt by inactive agent ".$request->email);
                 Auth::logout();
